@@ -13,37 +13,38 @@ class CreateUserTable extends Migration
     public function up(){
         $this->forge->addField([
             'id'        => [
-                'type'      => 'INT',
-                'constraint'        => 11,
+                'type'          => 'INT',
+                'constraint'    => 11,
                 'unsigned'      => true,
-                'auto_increment'        => true,
+                'auto_increment'=> true,
             ],
             'nama'      => [
-                'type'      => 'VARCHAR',
-                'constraint'        => '255',
+                'type'          => 'VARCHAR',
+                'constraint'    => '255',
             ],
             'npm'       => [
-                'type'      => 'VARCHAR',
-                'constraint'=> '10',
+                'type'          => 'VARCHAR',
+                'constraint'    => '10',
             ],
-            'id_kelas'      => [
-                'type'      => 'INT',
-                'constraint'=> 5,
-                'unsigned' => true,
+            'id_kelas'  => [
+                'type'          => 'INT',
+                'constraint'    => 5,
+                'unsigned'      => true,
             ],
-            'created_at'    => [
-                'type'      => 'DATETIME',
-                'null'      => true,
+            'created_at' => [
+                'type'          => 'DATETIME',
+                'null'          => true,
             ],
-            'update_at'     => [
-                'type'      => 'DATETIME',
-                'null'      => true,
+            'updateoh_at'  => [
+                'type'          => 'DATETIME',
+                'null'          => true,
             ],
-            'deleted_at'        => [
-                'type'      => 'DATETIME',
-                'null'      => true,
+            'deleted_at' => [
+                'type'          => 'DATETIME',
+                'null'          => true,
             ],
         ]);
+        
         $this->forge->addKey('id', true, true);
         $this->forge->addForeignKey('id_kelas', 'kelas', 'id');
         $this->forge->createTable('user');
