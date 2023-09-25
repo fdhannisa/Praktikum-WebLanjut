@@ -25,9 +25,17 @@
                 <label class="block text-gray-700 text-sm font-bold mb-2" for="kelas">
                     Kelas
                 </label>
-                <input
-                    class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
-                    id="kelas" name="kelas" type="text" placeholder="Kelas">
+                <select name="kelas" id="kelas">
+                    <?php
+                    foreach ($kelas as $item){
+                        ?>
+                    <option value="<?= $item['id'] ?>">
+                        <?= $item['nama_kelas'] ?>
+                    </option>
+                    <?php
+                    }
+                    ?>
+                </select>
             </div>
             <div class="mb-4">
                 <label class="block text-gray-700 text-sm font-bold mb-2" for="npm">
