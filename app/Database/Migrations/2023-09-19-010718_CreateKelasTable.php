@@ -13,7 +13,7 @@ class CreateKelasTable extends Migration
                 'type'          => 'INT',
                 'constraint'    => 5,
                 'unsigned'      => true,
-                'auto increment'=> true,
+                'auto_increment'=> true,
             ],
             'nama_kelas'    => [
                 'type'      => 'VARCHAR',
