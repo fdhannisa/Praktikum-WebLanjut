@@ -4,6 +4,7 @@ namespace App\Controllers;
 
 use App\Controllers\BaseController;
 use App\Models\UserModel;
+use CodeIgniter\Validation\StrictRules\Rules;
 
 class UserController extends BaseController
 {
@@ -25,6 +26,7 @@ class UserController extends BaseController
     public function create()
     {
         $kelas = [
+            
             [
                 'id'=>1,
                 'nama_kelas'=>'A'
@@ -42,7 +44,10 @@ class UserController extends BaseController
                 'nama_kelas'=>'D'
             ],
         ];
-$data=[
+
+    
+    $data=[
+        
             'kelas'=>$kelas
         ];
         return view('create_user',$data);
@@ -52,8 +57,9 @@ $data=[
 
     public function store()
     {    
-        if(!$this->validate([
-            'nama' => 'required|is_unique[user.nama]'
+        if (!$this->validate([
+            'nama' => 'required|is_unique[user.nama]',
+            'npm' => 'required|is_unique[user.npm]'
         ])){
             return redirect()->to('/user/create');
         }
