@@ -21,7 +21,7 @@
         <div class="space-y-4 text-center divide-y divide-gray-700">
             <div class="my-2 space-y-1">
                 <h2 class="text-xl font-semibold sm:text-2xl"><?= $nama ?></h2>
-                <p class="text-emerald-200 mt-2.5"><?= $kelas ?></p>
+                <p class="text-emerald-200 mt-2.5"><?= $id_kelas ?></p>
                 <p class="px-5 text-xs sm:text-base dark:text-gray-400"><?= $npm ?></p>
             </div>
             <div class="flex justify-center pt-2 space-x-4 align-center">
