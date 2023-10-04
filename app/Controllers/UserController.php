@@ -54,16 +54,38 @@ class UserController extends BaseController
 
     public function store()
     {
+        $path = 'assets/uploads/img';
+        $foto = $this->request->getFile('foto');
+        $name = $foto->getRandomName();
+
+        if ($foto->move($path, $name)){
+            $foto = base_url($path . $name);
+        }
+        
         $this->userModel->saveUser([
             'nama' => $this->request->getVar('nama'),
             'id_kelas' => $this->request->getVar('kelas'),
             'npm' => $this->request->getVar('npm'),
+            'foto'=> $foto,
         ]);
         return redirect()->to('/user');
+
     }
 
     public function delete($npm){
         $this->userModel->delete($npm);
         return redirect()->to('/list_user');
+    }
+
+    public function show($id)
+    {
+        $user = $this->userModel->getUser($id);
+
+        $data = [
+            'tittle' => 'Profile',
+            'user' => '$user,'
+        ];
+
+        return view('profile', $data);
     }
 }
