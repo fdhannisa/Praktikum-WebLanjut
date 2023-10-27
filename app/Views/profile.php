@@ -1,21 +1,11 @@
-<!DOCTYPE html>
-<html lang="en">
+<?= $this->extend('layouts/app') ?>
+<?= $this->section('content')?>
 
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Profile</title>
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&display=swap" rel="stylesheet">
-    <script src="https://cdn.tailwindcss.com"></script>
-</head>
-
-<body class="h-screen overflow-hidden flex items-center justify-center" style="background: #edf2f7;">
+<div class="h-screen overflow-hidden flex items-center justify-center" style="background: #edf2f7;">
 
     <div
         class="flex flex-col justify-center max-w-xs p-6 shadow-md rounded-xl sm:px-12 dark:bg-gray-900 dark:text-gray-100">
-        <span class="text-black font-bold text-sm mx-auto mb-5">Profile User</span>
+        <span class="text-white font-bold text-sm mx-auto mb-5">Profile User</span>
         <img src="<?= $user['foto'] ?? '<default-foto>'?>" width="100%" height="100%" alt=""
             class="w-32 h-32 mx-auto rounded-full dark:bg-gray-500 aspect-square">
         <div class="space-y-4 text-center divide-y divide-gray-700">
@@ -74,6 +64,6 @@
             </div>
         </div>
     </div>
-</body>
-
-</html>
+</div>
+<script src="https://cdn.tailwindcss.com"></script>
+<?= $this->endSection() ?>
