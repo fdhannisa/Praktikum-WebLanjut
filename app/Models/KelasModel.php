@@ -16,7 +16,7 @@ class KelasModel extends Model
     protected $allowedFields    = ['nama_kelas'];
 
     // Dates
-    protected $useTimestamps = false;
+    protected $useTimestamps = true;
     protected $dateFormat    = 'datetime';
     protected $createdField  = 'created_at';
     protected $updatedField  = 'updated_at';
@@ -40,7 +40,25 @@ class KelasModel extends Model
     protected $afterDelete    = [];
 
 
-    public function getKelas(){
+    public function getKelas($id = null)
+    {
+        if ($id != null) {
+            return $this->select('kelas.*')
+                ->find($id);
+        }
         return $this->findAll();
+    }
+
+    public function saveKelas($data)
+    {
+        $this->insert($data);
+    }
+
+    public function updateKelas($data, $id){
+        return $this->update($id,$data);
+    }
+
+    public function deleteKelas($id){
+        return $this->delete($id);
     }
 }
