@@ -16,13 +16,17 @@
     <div
         class="flex flex-col justify-center max-w-xs p-6 shadow-md rounded-xl sm:px-12 dark:bg-gray-900 dark:text-gray-100">
         <span class="text-black font-bold text-sm mx-auto mb-5">Profile User</span>
-        <img src="<?= base_url('assets/img/foto.jpeg')?>" alt=""
+        <img src="<?= $user['foto'] ?? '<default-foto>'?>" width="100%" height="100%" alt=""
             class="w-32 h-32 mx-auto rounded-full dark:bg-gray-500 aspect-square">
         <div class="space-y-4 text-center divide-y divide-gray-700">
             <div class="my-2 space-y-1">
-                <h2 class="text-xl font-semibold sm:text-2xl"><?= $nama ?></h2>
-                <p class="text-emerald-200 mt-2.5"><?= $id_kelas ?></p>
-                <p class="px-5 text-xs sm:text-base dark:text-gray-400"><?= $npm ?></p>
+                <h2 class="text-xl font-semibold sm:text-2xl"><?= $user['nama'] ?></h2>
+                <p class='img'
+                    src="https://cdn.discordapp.com/attachments/857891537986781186/1129757556336754688/961783.jpg"
+                    alt="Ini Gambar" height=175px width=175px -0.246v?></p>
+                <p class="text-emerald-200 mt-2.5"><?= $user['id_kelas'] ?></p>
+
+
             </div>
             <div class="flex justify-center pt-2 space-x-4 align-center">
                 <a rel="noopener noreferrer" href="#" aria-label="GitHub"
