@@ -1,5 +1,6 @@
 <?php
 
+use App\Controllers\UserController;
 use CodeIgniter\Router\RouteCollection;
 
 /**
@@ -9,7 +10,12 @@ $routes->get('/user', 'UserController::index');
 
 $routes->get('/profile/(:any)/(:any)/(:any)', 'Home::profile/$1/$2/$3');
 
-$routes->get('/user/create', 'UserController::create');
+$routes->get('/user/create', [UserController::class,'create']);
 
-$routes->post('/user/store', 'UserController::store');
-$routes->delete('/user/(:num)', 'UserController::delete/$3');
+$routes->post('/user/store', [UserController::class,'store']);
+
+$routes->get('/user/(:any)/edit', [UserController::class,'edit']);
+$routes->put('/user/(:any)', [UserController::class,'update']);
+$routes->delete('/user/(:any)', [UserController::class,'destroy']);
+
+$routes->get('/user/(:any)', [UserController::class, 'show']);
